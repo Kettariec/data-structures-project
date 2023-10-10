@@ -11,6 +11,9 @@ class TestStack(unittest.TestCase):
         self.assertEqual(node2.data, 'test')
         self.assertEqual(node1.next_node, None)
         self.assertEqual(node2.next_node, node1)
+        self.assertIsInstance(node1, Node)
+        self.assertIsInstance(node1.data, int)
+        self.assertIsInstance(node2.data, str)
 
     def test_stack_push(self):
         """тест push класса Stack"""
@@ -22,3 +25,5 @@ class TestStack(unittest.TestCase):
         self.assertEqual(stack.top.next_node.data, 'test2')
         self.assertEqual(stack.top.next_node.next_node.data, 'test1')
         self.assertEqual(stack.top.next_node.next_node.next_node, None)
+        with self.assertRaises(AttributeError):
+            stack.top.next_node.next_node.next_node.data
