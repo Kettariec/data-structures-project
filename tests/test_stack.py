@@ -3,8 +3,8 @@ from src.stack import Node, Stack
 
 
 class TestStack(unittest.TestCase):
-    """тест класса Node"""
     def test_node(self):
+        """тест класса Node"""
         node1 = Node(5, None)
         node2 = Node('test', node1)
         self.assertEqual(node1.data, 5)
@@ -36,3 +36,7 @@ class TestStack(unittest.TestCase):
         self.assertEqual(test_stack.top.data, 1)
         self.assertEqual(test_stack.pop(), 1)
         self.assertEqual(test_stack.pop(), None)
+
+    def test_str(self):
+        test_stack = Stack()
+        self.assertEqual(test_stack.__str__(), 'Последний добавленный элемент - None')
