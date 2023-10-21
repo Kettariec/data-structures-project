@@ -39,4 +39,5 @@ class TestStack(unittest.TestCase):
 
     def test_str(self):
         test_stack = Stack()
-        self.assertEqual(test_stack.__str__(), 'Последний добавленный элемент - None')
+        self.assertEqual(test_stack.__str__(),
+                         'Последний добавленный элемент - None')

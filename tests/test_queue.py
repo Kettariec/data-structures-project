@@ -23,3 +23,13 @@ class TestQueue(unittest.TestCase):
     def test_str(self):
         test_stack = Queue()
         self.assertEqual(test_stack.__str__(), test_stack.all_nodes)
+
+    def test_dequeue(self):
+        new_queue = Queue()
+        new_queue.enqueue('data1')
+        new_queue.enqueue('data2')
+        new_queue.enqueue('data3')
+        self.assertEqual(new_queue.dequeue(), 'data1')
+        self.assertEqual(new_queue.dequeue(), 'data2')
+        self.assertEqual(new_queue.dequeue(), 'data3')
+        self.assertEqual(new_queue.dequeue(), None)
