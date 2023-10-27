@@ -32,3 +32,19 @@ class TestLinkedList(unittest.TestCase):
         new_list.insert_beginning('data1')
         new_list.insert_beginning('data2')
         self.assertEqual(new_list.__str__(), 'data2 -> data1 -> None')
+
+    def test_to_list(self):
+        new_list = LinkedList()
+        new_list.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+        new_list.insert_beginning({'id': 0, 'username': 'serebro'})
+        self.assertEqual(new_list.to_list(),
+                         [{'id': 0, 'username': 'serebro'},
+                          {'id': 1, 'username': 'lazzy508509'}])
+
+    def test_get_data_by_id(self):
+        new_list = LinkedList()
+        new_list.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+        new_list.insert_at_end({'id': 2, 'username': 'mik.roz'})
+        new_list.insert_at_end({'id': 3, 'username': 'mosh_s'})
+        self.assertEqual(new_list.get_data_by_id(3),
+                         {'id': 3, 'username': 'mosh_s'})

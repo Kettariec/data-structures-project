@@ -57,3 +57,15 @@ class LinkedList:
 
         ll_string += 'None'
         return ll_string
+
+    def to_list(self):
+        return self.data_list
+
+    def get_data_by_id(self, mean_id):
+        for data in self.data_list:
+            try:
+                for key, item in data.items():
+                    if key == 'id' and item == mean_id:
+                        return data
+            except AttributeError:
+                print("Данные не являются словарем или в словаре нет id.")
